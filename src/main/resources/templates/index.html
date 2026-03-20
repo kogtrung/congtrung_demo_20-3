@@ -3,55 +3,424 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới thiệu - Thái Nguyễn Công Trung</title>
+    <title>Thái Nguyễn Công Trung - Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             color: #333;
-            border-bottom: 3px solid #007bff;
-            padding-bottom: 10px;
         }
-        
-        p {
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s;
+            animation-fill-mode: both;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+            animation: fadeInUp 0.8s ease 0.4s;
+            animation-fill-mode: both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            margin: 0 0.5rem;
+            animation: fadeInUp 0.8s ease 0.6s;
+            animation-fill-mode: both;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #667eea;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text p {
             color: #555;
-            line-height: 1.6;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            text-align: center;
+            font-size: 5rem;
+            color: #667eea;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-card p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        /* Goals Section */
+        .goals-list {
+            list-style: none;
+        }
+
+        .goals-list li {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .goals-list li:hover {
+            background: #e7f0ff;
+            padding-left: 1.5rem;
+        }
+
+        .goals-list li::before {
+            content: '✓ ';
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #764ba2;
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">TCTRUNG</div>
+            <ul class="nav-links">
+                <li><a href="#about">Về tôi</a></li>
+                <li><a href="#skills">Kỹ năng</a></li>
+                <li><a href="#goals">Mục tiêu</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Thái Nguyễn Công Trung</h1>
+        <p class="subtitle">Web Developer & Java Enthusiast</p>
+        <p class="description">Lập trình viên đam mê công nghệ, luôn sẵn sàng tạo ra các giải pháp web hiện đại và hiệu quả</p>
+        <a href="#about" class="btn">Tìm hiểu thêm</a>
+    </section>
+
     <div class="container">
-        <h1>Chào mừng!</h1>
-        
-        <h2>Về tôi</h2>
-        <p>Tôi là <strong>Thái Nguyễn Công Trung</strong>, một lập trình viên đam mê công nghệ và phát triển ứng dụng web.</p>
-        
-        <h2>Kỹ năng</h2>
-        <ul>
-            <li>Java và Spring Boot</li>
-            <li>HTML, CSS, JavaScript</li>
-            <li>Cơ sở dữ liệu</li>
-            <li>Phát triển ứng dụng web</li>
-        </ul>
-        
-        <h2>Mục tiêu</h2>
-        <p>Tôi luôn muốn cải thiện bản thân, học hỏi những công nghệ mới và tạo ra những sản phẩm có ích cho cộng đồng.</p>
-        
-        <hr>
-        <p><em>Cảm ơn bạn đã ghé thăm trang web của tôi!</em></p>
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="about-text">
+                <h2>Về tôi</h2>
+                <p>Xin chào, tôi là Thái Nguyễn Công Trung, một web developer có đam mê với công nghệ và phát triển ứng dụng.</p>
+                <p>Tôi chuyên biệt trong công nghệ <strong>Java</strong> và <strong>Spring Boot</strong>, với kinh nghiệm xây dựng các ứng dụng web toàn diện từ backend đến frontend.</p>
+                <p>Tôi không chỉ viết code, mà còn luôn tìm cách tối ưu hóa hiệu suất, cải thiện trải nghiệm người dùng và học hỏi những công nghệ mới.</p>
+            </div>
+            <div class="about-image">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Kỹ năng chuyên môn</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fab fa-java"></i>
+                    <h3>Java & Spring Boot</h3>
+                    <p>Phát triển ứng dụng backend mạnh mẽ và hiệu quả</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>Frontend Development</h3>
+                    <p>HTML, CSS, JavaScript - tạo giao diện đẹp mắt</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Database Design</h3>
+                    <p>Thiết kế cơ sở dữ liệu hiệu quả và tối ưu</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-docker"></i>
+                    <h3>DevOps & Docker</h3>
+                    <p>Containerization và deployment tự động</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-git"></i>
+                    <h3>Version Control</h3>
+                    <p>Git, GitHub - quản lý code chuyên nghiệp</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Best Practices</h3>
+                    <p>Clean Code, Design Patterns, Testing</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Goals Section -->
+        <section id="goals">
+            <h2>Mục tiêu và định hướng</h2>
+            <ul class="goals-list">
+                <li>Trở thành một full-stack developer chuyên nghiệp với kiến thức sâu rộng</li>
+                <li>Nâng cao kỹ năng thiết kế kiến trúc hệ thống và giải quyết vấn đề phức tạp</li>
+                <li>Đóng góp vào các dự án open-source và cộng đồng công nghệ</li>
+                <li>Liên tục học hỏi các công nghệ mới như Microservices, Machine Learning, Cloud Computing</li>
+                <li>Tạo ra các sản phẩm có ích phục vụ cộng đồng và xã hội</li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Liên hệ</h2>
+            <p style="text-align: center; font-size: 1.1rem; color: #555; margin-bottom: 2rem;">
+                Hãy liên hệ với tôi qua các kênh dưới đây
+            </p>
+            <div class="social-links">
+                <a href="mailto:your-email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+            </div>
+        </section>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Thái Nguyễn Công Trung. All rights reserved.</p>
+        <p>Designing & Coding with <i class="fas fa-heart" style="color: #ff6b6b;"></i></p>
+    </footer>
 </body>
 </html>
