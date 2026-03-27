@@ -158,6 +158,35 @@
             align-items: center;
         }
 
+        .personal-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .personal-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .personal-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .personal-info-label {
+            font-weight: bold;
+            min-width: 120px;
+        }
+
+        .personal-info-value {
+            text-align: right;
+        }
+
         .about-text p {
             color: #555;
             line-height: 1.8;
@@ -344,6 +373,20 @@
         <section id="about" class="about">
             <div class="about-text">
                 <h2>Về tôi</h2>
+                <div class="personal-info">
+                    <div class="personal-info-item">
+                        <span class="personal-info-label">Tên:</span>
+                        <span class="personal-info-value">Thái Nguyễn Công Trung</span>
+                    </div>
+                    <div class="personal-info-item">
+                        <span class="personal-info-label">MSSV:</span>
+                        <span class="personal-info-value">2280603472</span>
+                    </div>
+                    <div class="personal-info-item">
+                        <span class="personal-info-label">Nhóm:</span>
+                        <span class="personal-info-value">6</span>
+                    </div>
+                </div>
                 <p>Xin chào, tôi là Thái Nguyễn Công Trung, một web developer có đam mê với công nghệ và phát triển ứng dụng.</p>
                 <p>Tôi chuyên biệt trong công nghệ <strong>Java</strong> và <strong>Spring Boot</strong>, với kinh nghiệm xây dựng các ứng dụng web toàn diện từ backend đến frontend.</p>
                 <p>Tôi không chỉ viết code, mà còn luôn tìm cách tối ưu hóa hiệu suất, cải thiện trải nghiệm người dùng và học hỏi những công nghệ mới.</p>
